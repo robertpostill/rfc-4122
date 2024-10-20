@@ -1,9 +1,37 @@
-### Summary of Changes
+## What type of PR is this? (check all applicable)
 
-[Please describe your changes]
+- [ ] Refactor
+- [ ] Feature
+- [ ] Bug Fix
+- [ ] Optimization
+- [ ] Documentation Update
 
-### Public Domain Dedication
+## Description
 
-- [ ] In contributing, I relinquish any copyright claims on my contribution and freely release it into the public domain in the simple hope that it will provide value.
+## Related Tickets & Documents
 
-(**Why**: The freely released, copyright-free work in this repository represents an investment in a better way of doing things called _attribution-based economics_. Attribution-based economics is based on the simple idea that we gain more by giving more, not by holding on to things that, truly, we could only create because we, in our turn, received from others. As it turns out, an economic system based on attribution -- where those who give more are more empowered -- is significantly more efficient than capitalism while also being stable and fair (_unlike_ capitalism, on both counts), giving it transformative power to elevate the human condition and address the problems that face us today along with a host of others that have been intractable since the beginning. You can help make this a reality by releasing your work in the same way -- freely into the public domain in the simple hope of providing value. Learn more about attribution-based economics at [drym.org](https://drym.org), tell your friends, do your part.)
+For pull requests that relate or close an issue, please include them
+below.  We like to follow [Github's guidance on linking issues to pull requests](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+
+For example having the text: "closes #1234" would connect the current pull
+request to issue 1234.  And when we merge the pull request, Github will
+automatically close the issue.
+
+- Related Issue #
+- Closes #
+
+## QA Instructions, Screenshots, Recordings
+
+_Please replace this line with instructions on how to test your changes, a note
+on the devices and browsers this has been tested on, as well as any relevant
+images for UI changes._
+
+## Added/updated tests?
+_We encourage you to keep the code coverage percentage at 80% and above._
+
+- [ ] Yes
+- [ ] No, and this is why: _please replace this line with details on why tests
+      have not been included_
+- [ ] I need help with writing tests
+
+## [optional] Are there any post deployment tasks we need to perform?
