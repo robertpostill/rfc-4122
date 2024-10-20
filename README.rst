@@ -68,9 +68,3 @@ Add a description of your project here.
 
 Install it from the `Racket Package Index <https://pkgs.racket-lang.org/package/rfc-4122>`_.
 Read `the documentation <https://docs.racket-lang.org/rfc-4122/index.html>`_ to learn more. See `the Wiki <https://github.com/robertpostill/rfc-4122/wiki>`_ for community resources and events.
-
-"License":
-==========
-This work is "part of the world." You are free to do whatever you like with it and it isn't owned by anybody, not even the creators. Attribution would be appreciated and would help, but it is not strictly necessary nor required. If you'd like to learn more about this way of doing things and how it could lead to a peaceful, efficient, and creative world (and how you can be involved), visit `drym.org <https://drym.org>`_.
-
-(If you'd prefer to opt into copyright and use a license, then replace the COPYING file with a LICENSE file containing your preferred license, update the pull request template in pull_request_template.md (but read it first, at least, so you can make an informed choice), and remove the above dedication.)
