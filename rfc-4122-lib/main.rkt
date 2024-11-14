@@ -1,15 +1,49 @@
 #lang racket/base
 
-(provide hello)
+(provide generate-uuid generate-lockfile)
 
-(require racket/format)
+(require json
+         racket/port)
 
-(define (hello [name "World"])
-  (~a "Hello, " name "!"))
+(define LOCK-FILENAME "rfc4122.json")
 
-(module+ main
-  ;; (Optional) main submodule. Put code here if you need it to be executed when
-  ;; this file is run using DrRacket or the `racket` executable.  The code here
-  ;; does not run when this file is required by another module. Documentation:
-  ;; http://docs.racket-lang.org/guide/Module_Syntax.html#%28part._main-and-test%29
-  (displayln (hello)))
+(define MAC-OS-DIR "/Users/Shared")
+
+(define DIRNAME "rfc-4122")
+
+(define lockfile (string-append MAC-OS-DIR "/" DIRNAME "/" LOCK-FILENAME))
+
+(define (generate-uuid)
+  "test")
+
+(define (generate-lockfile lockfile)
+  (displayln (format "Looking for a lockfile at ~a" lockfile))
+  (let ([exists (file-exists? lockfile)])
+    (if exists
+        (consume-lockfile lockfile)
+        (initialise-lockfile lockfile))))
+
+(define (initialise-lockfile lockfile)
+  (displayln "Lockfile requires initialisation."))
+
+;;read the UUID generator state: the values of the timestamp, clock sequence,
+;; and node ID used to generate the last UUID.
+(define (read-lockfile lockfile)
+  (call-with-input-file lockfile
+    (λ (in) (port->string in))))
+
+(define (create-jsexpr)
+  (displayln "creating jsexpr as whatever was in the state file didn't work")
+  "maybe?")
+
+(define (parse-json-from-lockfile json-string)
+  (with-handlers ([exn:fail:read?
+                   (lambda (exn) (create-jsexpr))])
+    (string->jsexpr json-string)))
+
+(define (consume-lockfile lockfile)
+  (displayln "Lockfile exists: Attempting To Read State")
+  (let ([lockfile-contents (read-lockfile lockfile)])
+    (if (jsexpr? lockfile-contents)
+        (parse-json-from-lockfile lockfile-contents)
+        (initialise-lockfile lockfile))))
