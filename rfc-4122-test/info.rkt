@@ -6,7 +6,8 @@
                      "rackunit-lib"
                      "cover"
                      "cover-coveralls"
-                     "mock"))
+                     "mock"
+                     "mock-rackunit"))
 (define version "0.0")
 (define pkg-authors '(robertpostill))
 (define clean '("compiled" "tests/compiled"))
