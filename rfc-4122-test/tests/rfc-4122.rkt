@@ -26,7 +26,8 @@
      "generate-lockfile"
      (test-case
          "the lockfile exists and is good"
-       (define good-json "{ \"test\" : 1, \n \"test2\" : \"blah\" }")
+       (define good-json
+         "{ \"timestamp\" : 1, \n \"clock_sequence\" : \"ticktock\", \n \"node_id\" : \"blah\" }")
        (define expectation (seed-test-file "test.json" good-json))
        (define result (generate-lockfile "test.json"))
        (check-equal? result (string->jsexpr expectation)))

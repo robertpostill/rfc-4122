@@ -28,16 +28,19 @@
 
 ;;read the UUID generator state: the values of the timestamp, clock sequence,
 ;; and node ID used to generate the last UUID.
+;; TODO generate lock
 (define (read-lockfile lockfile)
-  (call-with-input-file lockfile
-    (λ (in) (port->string in))))
+  (with-handlers ([exn:fail:read? ;; due to string->jsexpr being finicky this needs wrapping
+                   (lambda (exn) (create-jsexpr))])
+    (call-with-input-file lockfile
+      (λ (in) (port->string in)))))
 
 (define (create-jsexpr)
   (displayln "creating jsexpr as whatever was in the state file didn't work")
   "maybe?")
 
 (define (parse-json-from-lockfile json-string)
-  (with-handlers ([exn:fail:read?
+  (with-handlers ([exn:fail:read? ;; due to string->jsexpr being finicky this needs wrapping
                    (lambda (exn) (create-jsexpr))])
     (string->jsexpr json-string)))
 
